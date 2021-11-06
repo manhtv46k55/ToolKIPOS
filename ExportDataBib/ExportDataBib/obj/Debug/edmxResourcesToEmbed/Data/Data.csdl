@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="KPS_DMD">
+    <Key>
+      <PropertyRef Name="DMD_ID" />
+    </Key>
+    <Property Name="DMD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PARENT_DMD_ID" Type="Int32" Nullable="false" />
+    <Property Name="COLLECTION_ID" Type="Int32" Nullable="false" />
+    <Property Name="DMD_OBJID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="L05" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="L06" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="L07" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="F8_DATE1" Type="Int16" />
+    <Property Name="F8_DATE2" Type="Int16" />
+    <Property Name="F8_PUBPLACE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="F8_LANGUAGE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="ISBN_ISSN" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="CALL_NUMBER_TAG" Type="Int16" />
+    <Property Name="CALL_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EDITION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PUBLISHER" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LABEL_TAG" Type="Int16" />
+    <Property Name="LABEL" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="MDTYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="XMLDATA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_COUNT" Type="Int32" />
+    <Property Name="ITEM_HIT_COUNT" Type="Int32" />
+    <Property Name="METS_COUNT" Type="Int32" />
+    <Property Name="METS_HIT_COUNT" Type="Int32" />
+    <Property Name="IS_INDEX" Type="Boolean" />
+    <Property Name="RECORD_ACCESS_LEVEL" Type="Int16" Nullable="false" />
+    <Property Name="RECORD_STATUS" Type="Int16" Nullable="false" />
+    <Property Name="RECORD_VERSION" Type="Int16" Nullable="false" />
+    <Property Name="RECORD_CREATOR" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RECORD_CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RECORD_MODIFIER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="RECORD_MODIFIED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="ITEM_LOCATION_SUMMARY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="KPS_DMD_COLLECTION">
+    <Key>
+      <PropertyRef Name="COLLECTION_ID" />
+    </Key>
+    <Property Name="COLLECTION_ID" Type="Int32" Nullable="false" />
+    <Property Name="PARENT_COLLECTION_ID" Type="Int32" />
+    <Property Name="COLLECTION_VI_TITLE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="COLLECTION_EN_TITLE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MDTYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TEMPLATE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EDITOR_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IMAGE_URL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MENU_ID" Type="Int32" Nullable="false" />
+    <Property Name="ORDER_NUMBER" Type="Int32" />
+    <Property Name="RECORD_ACCESS_LEVEL" Type="Int16" Nullable="false" />
+    <Property Name="RECORD_STATUS" Type="Int16" Nullable="false" />
+    <Property Name="RECORD_VERSION" Type="Int16" Nullable="false" />
+    <Property Name="RECORD_CREATOR" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RECORD_CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RECORD_MODIFIER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="RECORD_MODIFIED_DATE" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="ConnectDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="KPS_DMD" EntityType="Self.KPS_DMD" />
+    <EntitySet Name="KPS_DMD_COLLECTION" EntityType="Self.KPS_DMD_COLLECTION" />
+  </EntityContainer>
+</Schema>

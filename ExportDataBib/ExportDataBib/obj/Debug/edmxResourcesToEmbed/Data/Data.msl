@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ConnectDB">
+    <EntitySetMapping Name="KPS_DMD">
+      <EntityTypeMapping TypeName="Model.KPS_DMD">
+        <MappingFragment StoreEntitySet="KPS_DMD">
+          <ScalarProperty Name="DMD_ID" ColumnName="DMD_ID" />
+          <ScalarProperty Name="PARENT_DMD_ID" ColumnName="PARENT_DMD_ID" />
+          <ScalarProperty Name="COLLECTION_ID" ColumnName="COLLECTION_ID" />
+          <ScalarProperty Name="DMD_OBJID" ColumnName="DMD_OBJID" />
+          <ScalarProperty Name="L05" ColumnName="L05" />
+          <ScalarProperty Name="L06" ColumnName="L06" />
+          <ScalarProperty Name="L07" ColumnName="L07" />
+          <ScalarProperty Name="F8_DATE1" ColumnName="F8_DATE1" />
+          <ScalarProperty Name="F8_DATE2" ColumnName="F8_DATE2" />
+          <ScalarProperty Name="F8_PUBPLACE" ColumnName="F8_PUBPLACE" />
+          <ScalarProperty Name="F8_LANGUAGE" ColumnName="F8_LANGUAGE" />
+          <ScalarProperty Name="ISBN_ISSN" ColumnName="ISBN_ISSN" />
+          <ScalarProperty Name="CALL_NUMBER_TAG" ColumnName="CALL_NUMBER_TAG" />
+          <ScalarProperty Name="CALL_NUMBER" ColumnName="CALL_NUMBER" />
+          <ScalarProperty Name="EDITION" ColumnName="EDITION" />
+          <ScalarProperty Name="PUBLISHER" ColumnName="PUBLISHER" />
+          <ScalarProperty Name="LABEL_TAG" ColumnName="LABEL_TAG" />
+          <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+          <ScalarProperty Name="MDTYPE" ColumnName="MDTYPE" />
+          <ScalarProperty Name="XMLDATA" ColumnName="XMLDATA" />
+          <ScalarProperty Name="ITEM_COUNT" ColumnName="ITEM_COUNT" />
+          <ScalarProperty Name="ITEM_HIT_COUNT" ColumnName="ITEM_HIT_COUNT" />
+          <ScalarProperty Name="METS_COUNT" ColumnName="METS_COUNT" />
+          <ScalarProperty Name="METS_HIT_COUNT" ColumnName="METS_HIT_COUNT" />
+          <ScalarProperty Name="IS_INDEX" ColumnName="IS_INDEX" />
+          <ScalarProperty Name="RECORD_ACCESS_LEVEL" ColumnName="RECORD_ACCESS_LEVEL" />
+          <ScalarProperty Name="RECORD_STATUS" ColumnName="RECORD_STATUS" />
+          <ScalarProperty Name="RECORD_VERSION" ColumnName="RECORD_VERSION" />
+          <ScalarProperty Name="RECORD_CREATOR" ColumnName="RECORD_CREATOR" />
+          <ScalarProperty Name="RECORD_CREATED_DATE" ColumnName="RECORD_CREATED_DATE" />
+          <ScalarProperty Name="RECORD_MODIFIER" ColumnName="RECORD_MODIFIER" />
+          <ScalarProperty Name="RECORD_MODIFIED_DATE" ColumnName="RECORD_MODIFIED_DATE" />
+          <ScalarProperty Name="ITEM_LOCATION_SUMMARY" ColumnName="ITEM_LOCATION_SUMMARY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KPS_DMD_COLLECTION">
+      <EntityTypeMapping TypeName="Model.KPS_DMD_COLLECTION">
+        <MappingFragment StoreEntitySet="KPS_DMD_COLLECTION">
+          <ScalarProperty Name="COLLECTION_ID" ColumnName="COLLECTION_ID" />
+          <ScalarProperty Name="PARENT_COLLECTION_ID" ColumnName="PARENT_COLLECTION_ID" />
+          <ScalarProperty Name="COLLECTION_VI_TITLE" ColumnName="COLLECTION_VI_TITLE" />
+          <ScalarProperty Name="COLLECTION_EN_TITLE" ColumnName="COLLECTION_EN_TITLE" />
+          <ScalarProperty Name="MDTYPE" ColumnName="MDTYPE" />
+          <ScalarProperty Name="TEMPLATE_NAME" ColumnName="TEMPLATE_NAME" />
+          <ScalarProperty Name="EDITOR_NAME" ColumnName="EDITOR_NAME" />
+          <ScalarProperty Name="IMAGE_URL" ColumnName="IMAGE_URL" />
+          <ScalarProperty Name="MENU_ID" ColumnName="MENU_ID" />
+          <ScalarProperty Name="ORDER_NUMBER" ColumnName="ORDER_NUMBER" />
+          <ScalarProperty Name="RECORD_ACCESS_LEVEL" ColumnName="RECORD_ACCESS_LEVEL" />
+          <ScalarProperty Name="RECORD_STATUS" ColumnName="RECORD_STATUS" />
+          <ScalarProperty Name="RECORD_VERSION" ColumnName="RECORD_VERSION" />
+          <ScalarProperty Name="RECORD_CREATOR" ColumnName="RECORD_CREATOR" />
+          <ScalarProperty Name="RECORD_CREATED_DATE" ColumnName="RECORD_CREATED_DATE" />
+          <ScalarProperty Name="RECORD_MODIFIER" ColumnName="RECORD_MODIFIER" />
+          <ScalarProperty Name="RECORD_MODIFIED_DATE" ColumnName="RECORD_MODIFIED_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

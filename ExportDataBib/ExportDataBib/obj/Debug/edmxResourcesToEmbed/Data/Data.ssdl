@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="KPS_DMD">
+    <Key>
+      <PropertyRef Name="DMD_ID" />
+    </Key>
+    <Property Name="DMD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PARENT_DMD_ID" Type="int" Nullable="false" />
+    <Property Name="COLLECTION_ID" Type="int" Nullable="false" />
+    <Property Name="DMD_OBJID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="L05" Type="nchar" MaxLength="1" />
+    <Property Name="L06" Type="nchar" MaxLength="1" />
+    <Property Name="L07" Type="nchar" MaxLength="1" />
+    <Property Name="F8_DATE1" Type="smallint" />
+    <Property Name="F8_DATE2" Type="smallint" />
+    <Property Name="F8_PUBPLACE" Type="nvarchar" MaxLength="3" />
+    <Property Name="F8_LANGUAGE" Type="nvarchar" MaxLength="3" />
+    <Property Name="ISBN_ISSN" Type="nvarchar" MaxLength="13" />
+    <Property Name="CALL_NUMBER_TAG" Type="smallint" />
+    <Property Name="CALL_NUMBER" Type="nvarchar" MaxLength="50" />
+    <Property Name="EDITION" Type="nvarchar" MaxLength="50" />
+    <Property Name="PUBLISHER" Type="nvarchar" MaxLength="250" />
+    <Property Name="LABEL_TAG" Type="smallint" />
+    <Property Name="LABEL" Type="nvarchar" MaxLength="400" />
+    <Property Name="MDTYPE" Type="nvarchar" MaxLength="10" />
+    <Property Name="XMLDATA" Type="xml" />
+    <Property Name="ITEM_COUNT" Type="int" />
+    <Property Name="ITEM_HIT_COUNT" Type="int" />
+    <Property Name="METS_COUNT" Type="int" />
+    <Property Name="METS_HIT_COUNT" Type="int" />
+    <Property Name="IS_INDEX" Type="bit" />
+    <Property Name="RECORD_ACCESS_LEVEL" Type="smallint" Nullable="false" />
+    <Property Name="RECORD_STATUS" Type="smallint" Nullable="false" />
+    <Property Name="RECORD_VERSION" Type="smallint" Nullable="false" />
+    <Property Name="RECORD_CREATOR" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="RECORD_CREATED_DATE" Type="datetime" Nullable="false" />
+    <Property Name="RECORD_MODIFIER" Type="nvarchar" MaxLength="30" />
+    <Property Name="RECORD_MODIFIED_DATE" Type="datetime" />
+    <Property Name="ITEM_LOCATION_SUMMARY" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="KPS_DMD_COLLECTION">
+    <Key>
+      <PropertyRef Name="COLLECTION_ID" />
+    </Key>
+    <Property Name="COLLECTION_ID" Type="int" Nullable="false" />
+    <Property Name="PARENT_COLLECTION_ID" Type="int" />
+    <Property Name="COLLECTION_VI_TITLE" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="COLLECTION_EN_TITLE" Type="nvarchar" MaxLength="250" />
+    <Property Name="MDTYPE" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TEMPLATE_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="EDITOR_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IMAGE_URL" Type="nvarchar" MaxLength="250" />
+    <Property Name="MENU_ID" Type="int" Nullable="false" />
+    <Property Name="ORDER_NUMBER" Type="int" />
+    <Property Name="RECORD_ACCESS_LEVEL" Type="smallint" Nullable="false" />
+    <Property Name="RECORD_STATUS" Type="smallint" Nullable="false" />
+    <Property Name="RECORD_VERSION" Type="smallint" Nullable="false" />
+    <Property Name="RECORD_CREATOR" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="RECORD_CREATED_DATE" Type="datetime" Nullable="false" />
+    <Property Name="RECORD_MODIFIER" Type="nvarchar" MaxLength="30" />
+    <Property Name="RECORD_MODIFIED_DATE" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="KPS_DMD" EntityType="Self.KPS_DMD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KPS_DMD_COLLECTION" EntityType="Self.KPS_DMD_COLLECTION" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

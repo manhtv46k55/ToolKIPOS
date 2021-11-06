@@ -1,0 +1,199 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using ExportDataBib.Data
+
+<div class="row mt-3">
+    <div class="col-md-12">
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">Tra cứu thông tin thư mục</h3>
+            </div>
+            <div class="card-body">
+                <form id="frmValidate" name="frmValidate" onsubmit="return false">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row mt-2 mb-2">
+                                        <div class="col-md-4">
+                                            <label>Chọn Bộ Sưu Tập</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control form-control-sm" id="CollectionID" name="CollectionID">
+                                                <option class="form-control form-control-sm" value="0">--Tất Cả--</option>
+                                                @{
+                                                    foreach (var item in (List<KPS_DMD_COLLECTION>)ViewBag.ListCL)
+                                                    {
+                                                        if (item.PARENT_COLLECTION_ID > 0)
+                                                        {
+                                                            List<KPS_DMD_COLLECTION> LS = (List<KPS_DMD_COLLECTION>)ViewBag.ListCL;
+                                                            var sParentCollection = LS.Where(x => x.COLLECTION_ID.Equals(item.PARENT_COLLECTION_ID)).FirstOrDefault();
+                                                            <option value="@item.COLLECTION_ID" class="form-control form-control-sm">@item.COLLECTION_VI_TITLE - @sParentCollection.COLLECTION_VI_TITLE</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@item.COLLECTION_ID" class="form-control form-control-sm">@item.COLLECTION_VI_TITLE</option>
+                                                        }
+
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mt-2 mb-2">
+                                                <div class="col-md-4">
+                                                    <label>Từ Ngày</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="date" id="dtFromDate" name="dtFromDate" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="row mt-2 mb-2">
+                                                <div class="col-md-4">
+                                                    <label>Đến Ngày</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="date" id="dtToDate" name="dtToDate" class="form-control form-control-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="col-md-6">
+                            <div class="row">
+                                <label class="text-bold text-uppercase text-center">Thêm hoặc loại bỏ các trường dữ liệu được xuất ra</label>
+                                <div class="col-md-12">
+
+                                    <div class="row mt-2 mb-2">
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control mt-2" id="name" placeholder="giá trị trường dữ liệu - vd: 245$a">
+                                            <input type="text" id="des" class="form-control mt-2" placeholder="Mô tả">
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="button" class="add-row btn btn-sm btn-primary" value="Thêm">
+                                            <button type="button" class="delete-row btn btn-sm btn-danger">Xoá</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>*@
+                        @*<a class="btn btn-success btn-sm col-md-2 offset-md-5 mt-2 mb-2" href="/Home/GetData">Chấp nhận</a>*@
+                        <button class="btn btn-success btn-sm col-md-2 offset-md-5 mt-2 mb-2" onclick="btnSearch()">Chấp nhận</button>
+                    </div>
+                    @*<div class="row">
+                        <div class="col-md-12" style="height: 450px; overflow-y: scroll;">
+                            <label class="text-danger">Lưu ý: Các trường có mặt trong danh sách này sẽ được xuất ra - không cần tích chọn</label>
+                            <br />
+                            <label class="text-danger">Lưu ý: Nếu muốn loại bỏ: tích chọn => nhấn nút "Xoá"</label>
+                            <table id="tblData" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Trường dữ liệu</th>
+                                        <th>Mô tả</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" name="record"></td>
+                                        <td>245</td>
+                                        <td>Nhan đề</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="record"></td>
+                                        <td>002</td>
+                                        <td>ID sưu tập</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="record"></td>
+                                        <td>004</td>
+                                        <td>Mã gốc - từ phần mềm trước đó</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="record"></td>
+                                        <td>008</td>
+                                        <td>Trường 008</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="record"></td>
+                                        <td>009</td>
+                                        <td>Trường 009</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="record"></td>
+                                        <td>039</td>
+                                        <td>Trường 039</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="record"></td>
+                                        <td>041$a</td>
+                                        <td>Mã Ngôn ngữ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>*@
+
+
+                </form>
+
+                <div class="row border-top">
+                    <div class="col-md-12">
+                        <input type="hidden" id="txtListName" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        /*var list = [];*/
+
+        $(".add-row").click(function () {
+            var name = $("#name").val();
+            var Des = $("#des").val();
+            var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + name + "</td><td>" + Des + "</td></tr>";
+            if (name.length > 0) {
+                $("#tblData tbody").append(markup);
+            }
+
+        });
+
+       
+
+       /* $("#txtListName").val() = list.values;*/
+        // Find and remove selected table rows
+        $(".delete-row").click(function () {
+            var listAfterDel = [];
+            $("#tblData tbody").find('input[name="record"]').each(function () {
+                if ($(this).is(":checked")) {
+                    $(this).parents("tr").remove();
+                    $('#tblData tr').each(function (index, tr) {
+                        $(tr).find('td:eq(1)').each(function (index, td) {
+                            listAfterDel.push(td.innerHTML);
+                        });
+                    });
+                    list = listAfterDel;
+                    $("#txtListName").val = list;
+                }
+            });
+        });
+    });
+</script>
